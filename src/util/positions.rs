@@ -26,11 +26,7 @@ impl CubePos {
         self.to_block_pos_offset(0, 0, 0)
     }
     pub fn to_block_pos_offset(self, local_x: i32, local_y: i32, local_z: i32) -> BlockPos {
-        BlockPos::new(
-            (self.x << 4) + local_x,
-            (self.y << 4) + local_y,
-            (self.z << 4) + local_z,
-        )
+        BlockPos::new((self.x << 4) + local_x, (self.y << 4) + local_y, (self.z << 4) + local_z)
     }
 
     pub fn to_3dr_pos(self) -> RegionPos3d {
@@ -44,29 +40,20 @@ pub type RegionPos3d = Vec3i<RegionSpace3d>;
 
 impl RegionPos3d {
     pub const DIAMETER_IN_CUBES: usize = 16;
-    pub const CUBES_COUNT: usize =
-        Self::DIAMETER_IN_CUBES * Self::DIAMETER_IN_CUBES * Self::DIAMETER_IN_CUBES;
+    pub const CUBES_COUNT: usize = Self::DIAMETER_IN_CUBES * Self::DIAMETER_IN_CUBES * Self::DIAMETER_IN_CUBES;
 
     pub fn to_block_pos(self) -> BlockPos {
         BlockPos::new(self.x << 8, self.y << 8, self.z << 8)
     }
     pub fn to_block_pos_offset(self, local_x: i32, local_y: i32, local_z: i32) -> BlockPos {
-        BlockPos::new(
-            (self.x << 8) + local_x,
-            (self.y << 8) + local_y,
-            (self.z << 8) + local_z,
-        )
+        BlockPos::new((self.x << 8) + local_x, (self.y << 8) + local_y, (self.z << 8) + local_z)
     }
 
     pub fn to_cube_pos(self) -> CubePos {
         self.to_cube_pos_offset(0, 0, 0)
     }
     pub fn to_cube_pos_offset(self, local_x: i32, local_y: i32, local_z: i32) -> CubePos {
-        CubePos::new(
-            (self.x << 4) + local_x,
-            (self.y << 4) + local_y,
-            (self.z << 4) + local_z,
-        )
+        CubePos::new((self.x << 4) + local_x, (self.y << 4) + local_y, (self.z << 4) + local_z)
     }
 
     pub fn region_key(&self) -> RegionKey {

@@ -17,11 +17,7 @@ pub struct CachingRegionWriter<K: Key<R>, R: Eq + Hash> {
 }
 
 impl<K: Key<R> + Copy, R: Eq + Hash> CachingRegionWriter<K, R> {
-    pub fn new(
-        path: &Path,
-        sector_size: usize,
-        max_cache_size: usize,
-    ) -> Result<Self, std::io::Error> {
+    pub fn new(path: &Path, sector_size: usize, max_cache_size: usize) -> Result<Self, std::io::Error> {
         fs::create_dir(path)?;
         Ok(Self {
             sector_size,
@@ -37,16 +33,13 @@ impl<K: Key<R> + Copy, R: Eq + Hash> CachingRegionWriter<K, R> {
             self.flush()?
         }
 
-        let region = self
-            .region_cache
-            .entry(entry_location.to_region_pos())
-            .or_insert_with(|| {
-                WriteRegion::new(
-                    &self.path.join(entry_location.region_key()),
-                    self.sector_size,
-                    EntryLocation3d::ENTRIES_PER_REGION,
-                )
-            });
+        let region = self.region_cache.entry(entry_location.to_region_pos()).or_insert_with(|| {
+            WriteRegion::new(
+                &self.path.join(entry_location.region_key()),
+                self.sector_size,
+                EntryLocation3d::ENTRIES_PER_REGION,
+            )
+        });
 
         region.write(entry_location, data)?;
         Ok(())

@@ -27,12 +27,8 @@ impl From<std::io::Error> for AnvilReadError {
 impl Debug for AnvilReadError {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
-            AnvilReadError::StdIo(err) => {
-                f.write_str(&*format!("Error when reading anvil region: {}", err))
-            }
-            AnvilReadError::MissingHeader(region_pos) => {
-                f.write_str(&*format!("Missing header in region {}", region_pos))
-            }
+            AnvilReadError::StdIo(err) => f.write_str(&*format!("Error when reading anvil region: {}", err)),
+            AnvilReadError::MissingHeader(region_pos) => f.write_str(&*format!("Missing header in region {}", region_pos)),
         }
     }
 }
@@ -40,12 +36,8 @@ impl Debug for AnvilReadError {
 impl Display for AnvilReadError {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
-            AnvilReadError::StdIo(err) => {
-                f.write_str(&*format!("Error when reading anvil region: {}", err))
-            }
-            AnvilReadError::MissingHeader(region_pos) => {
-                f.write_str(&*format!("Missing header in region {}", region_pos))
-            }
+            AnvilReadError::StdIo(err) => f.write_str(&*format!("Error when reading anvil region: {}", err)),
+            AnvilReadError::MissingHeader(region_pos) => f.write_str(&*format!("Missing header in region {}", region_pos)),
         }
     }
 }

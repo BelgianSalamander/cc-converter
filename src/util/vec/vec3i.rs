@@ -65,9 +65,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn add(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z) })(lhs, rhs)
         }
     }
 }
@@ -77,9 +75,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn add(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z) })(lhs, &rhs)
         }
     }
 }
@@ -89,9 +85,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn add(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z) })(&lhs, rhs)
         }
     }
 }
@@ -101,9 +95,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn add(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x + b.x, a.y + b.y, a.z + b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -143,9 +135,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn sub(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z) })(lhs, rhs)
         }
     }
 }
@@ -155,9 +145,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn sub(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z) })(lhs, &rhs)
         }
     }
 }
@@ -167,9 +155,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn sub(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z) })(&lhs, rhs)
         }
     }
 }
@@ -179,9 +165,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn sub(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x - b.x, a.y - b.y, a.z - b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -221,9 +205,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn mul(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z) })(lhs, rhs)
         }
     }
 }
@@ -233,9 +215,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn mul(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z) })(lhs, &rhs)
         }
     }
 }
@@ -245,9 +225,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn mul(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z) })(&lhs, rhs)
         }
     }
 }
@@ -257,9 +235,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn mul(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x * b.x, a.y * b.y, a.z * b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -299,9 +275,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn div(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z) })(lhs, rhs)
         }
     }
 }
@@ -311,9 +285,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn div(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z) })(lhs, &rhs)
         }
     }
 }
@@ -323,9 +295,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn div(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z) })(&lhs, rhs)
         }
     }
 }
@@ -335,9 +305,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn div(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x / b.x, a.y / b.y, a.z / b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -377,9 +345,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<&i32> for &Vec3i<SPACE> {
     fn add(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(
-                lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(lhs, rhs)
         }
     }
 }
@@ -389,9 +355,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<i32> for &Vec3i<SPACE> {
     fn add(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(
-                lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(lhs, &rhs)
         }
     }
 }
@@ -401,9 +365,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<&i32> for Vec3i<SPACE> {
     fn add(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(
-                &lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(&lhs, rhs)
         }
     }
 }
@@ -413,9 +375,7 @@ impl<SPACE: CoordinateSpace> std::ops::Add<i32> for Vec3i<SPACE> {
     fn add(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(
-                &lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x + b, a.y + b, a.z + b) })(&lhs, &rhs)
         }
     }
 }
@@ -455,9 +415,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<&i32> for &Vec3i<SPACE> {
     fn sub(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(
-                lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(lhs, rhs)
         }
     }
 }
@@ -467,9 +425,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<i32> for &Vec3i<SPACE> {
     fn sub(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(
-                lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(lhs, &rhs)
         }
     }
 }
@@ -479,9 +435,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<&i32> for Vec3i<SPACE> {
     fn sub(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(
-                &lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(&lhs, rhs)
         }
     }
 }
@@ -491,9 +445,7 @@ impl<SPACE: CoordinateSpace> std::ops::Sub<i32> for Vec3i<SPACE> {
     fn sub(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(
-                &lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x - b, a.y - b, a.z - b) })(&lhs, &rhs)
         }
     }
 }
@@ -533,9 +485,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<&i32> for &Vec3i<SPACE> {
     fn mul(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(
-                lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(lhs, rhs)
         }
     }
 }
@@ -545,9 +495,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<i32> for &Vec3i<SPACE> {
     fn mul(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(
-                lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(lhs, &rhs)
         }
     }
 }
@@ -557,9 +505,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<&i32> for Vec3i<SPACE> {
     fn mul(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(
-                &lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(&lhs, rhs)
         }
     }
 }
@@ -569,9 +515,7 @@ impl<SPACE: CoordinateSpace> std::ops::Mul<i32> for Vec3i<SPACE> {
     fn mul(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(
-                &lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x * b, a.y * b, a.z * b) })(&lhs, &rhs)
         }
     }
 }
@@ -611,9 +555,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<&i32> for &Vec3i<SPACE> {
     fn div(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(
-                lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(lhs, rhs)
         }
     }
 }
@@ -623,9 +565,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<i32> for &Vec3i<SPACE> {
     fn div(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(
-                lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(lhs, &rhs)
         }
     }
 }
@@ -635,9 +575,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<&i32> for Vec3i<SPACE> {
     fn div(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(
-                &lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(&lhs, rhs)
         }
     }
 }
@@ -647,9 +585,7 @@ impl<SPACE: CoordinateSpace> std::ops::Div<i32> for Vec3i<SPACE> {
     fn div(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(
-                &lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x / b, a.y / b, a.z / b) })(&lhs, &rhs)
         }
     }
 }
@@ -689,9 +625,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn bitand(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z) })(lhs, rhs)
         }
     }
 }
@@ -701,9 +635,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn bitand(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z) })(lhs, &rhs)
         }
     }
 }
@@ -713,9 +645,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn bitand(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z) })(&lhs, rhs)
         }
     }
 }
@@ -725,9 +655,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn bitand(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x & b.x, a.y & b.y, a.z & b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -767,9 +695,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn bitor(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z) })(lhs, rhs)
         }
     }
 }
@@ -779,9 +705,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn bitor(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z) })(lhs, &rhs)
         }
     }
 }
@@ -791,9 +715,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn bitor(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z) })(&lhs, rhs)
         }
     }
 }
@@ -803,9 +725,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn bitor(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x | b.x, a.y | b.y, a.z | b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -845,9 +765,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn shl(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z) })(lhs, rhs)
         }
     }
 }
@@ -857,9 +775,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn shl(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z) })(lhs, &rhs)
         }
     }
 }
@@ -869,9 +785,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn shl(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z) })(&lhs, rhs)
         }
     }
 }
@@ -881,9 +795,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn shl(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x << b.x, a.y << b.y, a.z << b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -923,9 +835,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<&Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn shr(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z) })(lhs, rhs)
         }
     }
 }
@@ -935,9 +845,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<Vec3i<SPACE>> for &Vec3i<SPACE> {
     fn shr(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z) })(lhs, &rhs)
         }
     }
 }
@@ -947,9 +855,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<&Vec3i<SPACE>> for Vec3i<SPACE> {
     fn shr(self, rhs: &Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z) })(&lhs, rhs)
         }
     }
 }
@@ -959,9 +865,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<Vec3i<SPACE>> for Vec3i<SPACE> {
     fn shr(self, rhs: Vec3i<SPACE>) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &Vec3i<SPACE>| -> Vec3i<SPACE> { Vec3i::new(a.x >> b.x, a.y >> b.y, a.z >> b.z) })(&lhs, &rhs)
         }
     }
 }
@@ -1009,9 +913,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<&i32> for &Vec3i<SPACE> {
     fn bitand(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(
-                lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(lhs, rhs)
         }
     }
 }
@@ -1021,9 +923,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<i32> for &Vec3i<SPACE> {
     fn bitand(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(
-                lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(lhs, &rhs)
         }
     }
 }
@@ -1033,9 +933,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<&i32> for Vec3i<SPACE> {
     fn bitand(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(
-                &lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(&lhs, rhs)
         }
     }
 }
@@ -1045,9 +943,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitAnd<i32> for Vec3i<SPACE> {
     fn bitand(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(
-                &lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x & b, a.y & b, a.z & b) })(&lhs, &rhs)
         }
     }
 }
@@ -1087,9 +983,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<&i32> for &Vec3i<SPACE> {
     fn bitor(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(
-                lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(lhs, rhs)
         }
     }
 }
@@ -1099,9 +993,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<i32> for &Vec3i<SPACE> {
     fn bitor(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(
-                lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(lhs, &rhs)
         }
     }
 }
@@ -1111,9 +1003,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<&i32> for Vec3i<SPACE> {
     fn bitor(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(
-                &lhs, rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(&lhs, rhs)
         }
     }
 }
@@ -1123,9 +1013,7 @@ impl<SPACE: CoordinateSpace> std::ops::BitOr<i32> for Vec3i<SPACE> {
     fn bitor(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(
-                &lhs, &rhs,
-            )
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x | b, a.y | b, a.z | b) })(&lhs, &rhs)
         }
     }
 }
@@ -1165,9 +1053,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<&i32> for &Vec3i<SPACE> {
     fn shl(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b, a.y << b, a.z << b)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x << b, a.y << b, a.z << b) })(lhs, rhs)
         }
     }
 }
@@ -1177,9 +1063,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<i32> for &Vec3i<SPACE> {
     fn shl(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b, a.y << b, a.z << b)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x << b, a.y << b, a.z << b) })(lhs, &rhs)
         }
     }
 }
@@ -1189,9 +1073,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<&i32> for Vec3i<SPACE> {
     fn shl(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b, a.y << b, a.z << b)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x << b, a.y << b, a.z << b) })(&lhs, rhs)
         }
     }
 }
@@ -1201,9 +1083,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shl<i32> for Vec3i<SPACE> {
     fn shl(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x << b, a.y << b, a.z << b)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x << b, a.y << b, a.z << b) })(&lhs, &rhs)
         }
     }
 }
@@ -1243,9 +1123,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<&i32> for &Vec3i<SPACE> {
     fn shr(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b, a.y >> b, a.z >> b)
-            })(lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x >> b, a.y >> b, a.z >> b) })(lhs, rhs)
         }
     }
 }
@@ -1255,9 +1133,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<i32> for &Vec3i<SPACE> {
     fn shr(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b, a.y >> b, a.z >> b)
-            })(lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x >> b, a.y >> b, a.z >> b) })(lhs, &rhs)
         }
     }
 }
@@ -1267,9 +1143,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<&i32> for Vec3i<SPACE> {
     fn shr(self, rhs: &i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b, a.y >> b, a.z >> b)
-            })(&lhs, rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x >> b, a.y >> b, a.z >> b) })(&lhs, rhs)
         }
     }
 }
@@ -1279,9 +1153,7 @@ impl<SPACE: CoordinateSpace> std::ops::Shr<i32> for Vec3i<SPACE> {
     fn shr(self, rhs: i32) -> Self::Output {
         let lhs = self;
         {
-            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> {
-                Vec3i::new(a.x >> b, a.y >> b, a.z >> b)
-            })(&lhs, &rhs)
+            (|a: &Vec3i<SPACE>, b: &i32| -> Vec3i<SPACE> { Vec3i::new(a.x >> b, a.y >> b, a.z >> b) })(&lhs, &rhs)
         }
     }
 }

@@ -18,17 +18,12 @@ pub type EntryLocation3d = Vec3i<EntryLocation3dSpace>;
 impl EntryLocation3d {
     const LOC_BITS: usize = 4;
     const LOC_BITMASK: usize = (1 << Self::LOC_BITS) - 1;
-    pub const ENTRIES_PER_REGION: usize =
-        (1 << Self::LOC_BITS) * (1 << Self::LOC_BITS) * (1 << Self::LOC_BITS);
+    pub const ENTRIES_PER_REGION: usize = (1 << Self::LOC_BITS) * (1 << Self::LOC_BITS) * (1 << Self::LOC_BITS);
 }
 
 impl Key<RegionPos3d> for EntryLocation3d {
     fn to_region_pos(self) -> RegionPos3d {
-        RegionPos3d::new(
-            self.x >> Self::LOC_BITS,
-            self.y >> Self::LOC_BITS,
-            self.z >> Self::LOC_BITS,
-        )
+        RegionPos3d::new(self.x >> Self::LOC_BITS, self.y >> Self::LOC_BITS, self.z >> Self::LOC_BITS)
     }
 
     fn region_key(&self) -> RegionKey {
@@ -66,8 +61,7 @@ impl Key<RegionPos2d> for EntryLocation2d {
     }
 
     fn id(&self) -> usize {
-        ((self.x as usize & Self::LOC_BITMASK) << Self::LOC_BITS)
-            | (self.z as usize & Self::LOC_BITMASK)
+        ((self.x as usize & Self::LOC_BITMASK) << Self::LOC_BITS) | (self.z as usize & Self::LOC_BITMASK)
     }
 }
 
@@ -93,11 +87,7 @@ impl RegionPos2d {
     pub fn to_minecraft_chunk_location(self) -> MinecraftChunkLocation {
         self.to_minecraft_chunk_location_offset(0, 0)
     }
-    pub fn to_minecraft_chunk_location_offset(
-        self,
-        local_x: i32,
-        local_z: i32,
-    ) -> MinecraftChunkLocation {
+    pub fn to_minecraft_chunk_location_offset(self, local_x: i32, local_z: i32) -> MinecraftChunkLocation {
         MinecraftChunkLocation::new((self.x << 5) + local_x, (self.z << 5) + local_z)
     }
 }
@@ -112,7 +102,6 @@ impl Key<RegionPos2d> for MinecraftChunkLocation {
     }
 
     fn id(&self) -> usize {
-        ((self.x as usize & Self::LOC_BITMASK) << Self::LOC_BITS)
-            | (self.z as usize & Self::LOC_BITMASK)
+        ((self.x as usize & Self::LOC_BITMASK) << Self::LOC_BITS) | (self.z as usize & Self::LOC_BITMASK)
     }
 }

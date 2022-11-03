@@ -6,9 +6,7 @@ use byteorder::{LittleEndian, WriteBytesExt};
 
 use lazy_static::lazy_static;
 
-use crate::convert::anvil2cc::Anvil2CCConversionError::{
-    InvalidData, NbtIo, NbtRepr, NbtStructure, Other,
-};
+use crate::convert::anvil2cc::Anvil2CCConversionError::{InvalidData, NbtIo, NbtRepr, NbtStructure, Other};
 use quartz_nbt::io::NbtIoError;
 use quartz_nbt::NbtTag::{Byte, ByteArray, Compound, Int, IntArray, String};
 use quartz_nbt::{NbtCompound, NbtList, NbtReprError, NbtStructureError, NbtTag};
@@ -155,15 +153,10 @@ pub struct Anvil2CCConverter {
 
 impl Anvil2CCConverter {
     pub fn new(fix_missing_tile_entities: bool) -> Self {
-        Self {
-            fix_missing_tile_entities,
-        }
+        Self { fix_missing_tile_entities }
     }
 
-    pub fn convert(
-        &self,
-        src: AnvilChunkData,
-    ) -> Result<Box<[CubicChunks112Data]>, Anvil2CCConversionError> {
+    pub fn convert(&self, src: AnvilChunkData) -> Result<Box<[CubicChunks112Data]>, Anvil2CCConversionError> {
         let data = CubicChunks112Data::from_data(
             src.position.to_entry_location_2d(),
             self.extract_column_data(src.data)?,
@@ -179,10 +172,7 @@ impl Anvil2CCConverter {
         Ok(write_compressed(&output, true)?)
     }
 
-    fn extract_column_data_from_tag(
-        &self,
-        tag: NbtCompound,
-    ) -> Result<NbtCompound, Anvil2CCConversionError> {
+    fn extract_column_data_from_tag(&self, tag: NbtCompound) -> Result<NbtCompound, Anvil2CCConversionError> {
         /*
          * Vanilla Chunk NBT structure:
          *
@@ -238,17 +228,11 @@ impl Anvil2CCConverter {
 
         level.insert("x", Int(src_level.get::<_, i32>("xPos")?));
         level.insert("z", Int(src_level.get::<_, i32>("zPos")?));
-        level.insert(
-            "InhabitedTime",
-            Int(src_level.get::<_, i32>("InhabitedTime").unwrap_or(0)),
-        );
+        level.insert("InhabitedTime", Int(src_level.get::<_, i32>("InhabitedTime").unwrap_or(0)));
         if let Ok(biomes) = src_level.get::<_, &Vec<i32>>("Biomes") {
             level.insert("Biomes", biomes.clone());
         }
-        level.insert(
-            "OpacityIndex",
-            ByteArray(Self::make_dummy_opacity_index(&src_height_map)?),
-        );
+        level.insert("OpacityIndex", ByteArray(Self::make_dummy_opacity_index(&src_height_map)?));
 
         let mut root = NbtCompound::new();
         root.insert("Level", level);
@@ -279,10 +263,7 @@ impl Anvil2CCConverter {
         Ok(vec_u8_into_i8(out))
     }
 
-    fn extract_cube_data(
-        &self,
-        data: &[u8],
-    ) -> Result<Vec<(i32, Vec<u8>)>, Anvil2CCConversionError> {
+    fn extract_cube_data(&self, data: &[u8]) -> Result<Vec<(i32, Vec<u8>)>, Anvil2CCConversionError> {
         let tags = self.extract_cube_data_from_tag(read_compressed(data)?)?;
         let mut bytes_by_cube_y = Vec::new();
         for (y, tag) in tags {
@@ -291,10 +272,7 @@ impl Anvil2CCConverter {
         Ok(bytes_by_cube_y)
     }
 
-    fn extract_cube_data_from_tag(
-        &self,
-        src_root: NbtCompound,
-    ) -> Result<Vec<(i32, NbtCompound)>, Anvil2CCConversionError> {
+    fn extract_cube_data_from_tag(&self, src_root: NbtCompound) -> Result<Vec<(i32, NbtCompound)>, Anvil2CCConversionError> {
         /*
          * Vanilla Chunk NBT structure:
          *
@@ -395,17 +373,10 @@ impl Anvil2CCConverter {
                     sections_tag.push(sec);
                     level.insert("Sections", sections_tag);
 
-                    level.insert(
-                        "Entities",
-                        Self::filter_entities(src_level.get::<_, &NbtList>("Entities")?, y)?,
-                    );
-                    let mut tile_entities = Self::filter_tile_entities(
-                        src_level.get::<_, &NbtList>("TileEntities")?,
-                        y,
-                    )?;
+                    level.insert("Entities", Self::filter_entities(src_level.get::<_, &NbtList>("Entities")?, y)?);
+                    let mut tile_entities = Self::filter_tile_entities(src_level.get::<_, &NbtList>("TileEntities")?, y)?;
                     if self.fix_missing_tile_entities {
-                        tile_entities =
-                            Self::add_missing_tile_entities(x, y, z, tile_entities, src_section)?;
+                        tile_entities = Self::add_missing_tile_entities(x, y, z, tile_entities, src_section)?;
                     }
                     level.insert("TileEntities", tile_entities);
                     if let Ok(tile_ticks) = src_level.get::<_, &NbtList>("TileTicks") {
@@ -455,11 +426,7 @@ impl Anvil2CCConverter {
             let y = i >> 8 & 15;
             let z = i >> 4 & 15;
 
-            let mut to_add = if let Some(add) = add {
-                Self::get_nibble(add, i)
-            } else {
-                0
-            };
+            let mut to_add = if let Some(add) = add { Self::get_nibble(add, i) } else { 0 };
 
             let asd = if let Some(add2neid) = add2neid {
                 Self::get_nibble(add2neid, i) << 4
@@ -548,10 +515,7 @@ impl Anvil2CCConverter {
         Ok(lighting_info_map)
     }
 
-    fn filter_entities(
-        entities: &NbtList,
-        cube_y: i32,
-    ) -> Result<NbtList, Anvil2CCConversionError> {
+    fn filter_entities(entities: &NbtList, cube_y: i32) -> Result<NbtList, Anvil2CCConversionError> {
         let y_min = cube_y * 16;
         let y_max = y_min + 16;
         let mut cube_entities = NbtList::new();
@@ -566,10 +530,7 @@ impl Anvil2CCConverter {
         Ok(cube_entities)
     }
 
-    fn filter_tile_entities(
-        tile_entities: &NbtList,
-        cube_y: i32,
-    ) -> Result<NbtList, Anvil2CCConversionError> {
+    fn filter_tile_entities(tile_entities: &NbtList, cube_y: i32) -> Result<NbtList, Anvil2CCConversionError> {
         // empty list is list of EndTags
         if tile_entities.is_empty() {
             return Ok(tile_entities.clone());
@@ -587,10 +548,7 @@ impl Anvil2CCConverter {
         Ok(cube_tes)
     }
 
-    fn filter_tile_ticks(
-        tile_ticks: &NbtList,
-        cube_y: i32,
-    ) -> Result<NbtList, Anvil2CCConversionError> {
+    fn filter_tile_ticks(tile_ticks: &NbtList, cube_y: i32) -> Result<NbtList, Anvil2CCConversionError> {
         let y_min = cube_y * 16;
         let y_max = y_min + 16;
         let mut cube_ticks = NbtList::new();

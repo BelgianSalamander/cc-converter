@@ -7,11 +7,7 @@ pub struct CubicChunks112Data {
 }
 
 impl CubicChunks112Data {
-    pub fn from_data(
-        position: EntryLocation2d,
-        column_data: Vec<u8>,
-        cube_data: Vec<(i32, Vec<u8>)>,
-    ) -> Self {
+    pub fn from_data(position: EntryLocation2d, column_data: Vec<u8>, cube_data: Vec<(i32, Vec<u8>)>) -> Self {
         Self {
             position,
             column_data,
