@@ -1,22 +1,25 @@
 use crate::types::{ConversionFunc, Types};
-use quartz_nbt::{Map, NbtTag};
+use quartz_nbt::NbtTag;
+use std::error::Error;
 
 pub mod types;
 
+pub fn call_closure_with<'a, T, F: Fn(&'a mut NbtTag, usize, usize) -> Result<T, Box<dyn Error>>>(
+    f: F,
+    value: &'a mut NbtTag,
+    from_ver: usize,
+    to_ver: usize,
+) -> Result<T, Box<dyn Error>> {
+    f(value, from_ver, to_ver)
+}
+
 pub struct SchemaInfo<'d> {
-    pub references: Types<&'static ConversionFunc>,
-    pub data: &'d mut Map<NbtTag>,
-    pub from_version: usize,
-    pub to_version: usize,
+    pub references: &'d mut Types<&'static ConversionFunc>,
+    pub version: usize,
 }
 
 impl<'d> SchemaInfo<'d> {
-    pub fn new(references: Types<&'static ConversionFunc>, data: &'d mut Map<NbtTag>, from_version: usize, to_version: usize) -> Self {
-        Self {
-            references,
-            data,
-            from_version,
-            to_version,
-        }
+    pub fn new(references: &'d mut Types<&'static ConversionFunc>, version: usize) -> Self {
+        Self { references, version }
     }
 }

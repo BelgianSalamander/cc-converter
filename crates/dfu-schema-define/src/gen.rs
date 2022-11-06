@@ -12,7 +12,7 @@ pub(crate) fn generate_output(info: &syn::Ident, node: &SchemaNode) -> proc_macr
             }
 
             quote! {
-                #info.references.#ident.insert(#info.from_version,
+                #info.references.#ident.insert(#info.version,
                     std::boxed::Box::leak(std::boxed::Box::new(|value: &mut quartz_nbt::NbtTag, from, to|{
                         #nodes_tokens
                         Ok(())
@@ -59,6 +59,21 @@ pub(crate) fn generate_output(info: &syn::Ident, node: &SchemaNode) -> proc_macr
                 }
             };
             tokens
+        }
+        SchemaNode::MapValues(node) => {
+            let inner = generate_output(info, node);
+            let tokens = quote! {
+                let compound: &mut quartz_nbt::NbtCompound = value.try_into()?;
+                for (key, value) in compound.inner_mut().iter_mut() {
+                    #inner
+                }
+            };
+            tokens
+        }
+        SchemaNode::Custom(closure) => {
+            quote! {
+                dfu_structures::call_closure_with(#closure, value, from, to)?;
+            }
         }
     }
 }
